@@ -10,18 +10,14 @@
         }
     ], 
     "require": {
-        "magento-hackathon/magento-composer-installer":"*",
-        "widgento/magento-core": "~0.2@stable"
+        "widgento/magento-core": "dev-master"
     }, 
     "require-dev": {
         "phing/phing": "2.*",
         "widgento/phing-license": "dev-master"
     },
     "repositories":[
-        {"type": "git", "url": "https://github.com/widgento/magento-core.git"},
+        {"type": "git", "url": "../magento-core"},
         {"type": "git", "url": "https://github.com/widgento/phing-license.git"}
-    ],
-    "extra": {
-        "magento-root-dir": "var/src"
-    }
+    ]
 }

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Widgento_Login" default="archive">
+<project name="Widgento_Login" default="add_dependencies">
     <autoloader autoloaderpath="vendor/autoload.php" />
 
     <import file="vendor/widgento/magento-core/build.xml" />
     <property name="version" value="0.1.0" override="true" />
+
+    <target name="add_dependencies" depends="prepare">
+        <copy todir="${buildsrc}">
+            <fileset dir="vendor/widgento/magento-core/src">
+                <include name="**" />
+            </fileset>
+        </copy>
+    </target>
 </project>
