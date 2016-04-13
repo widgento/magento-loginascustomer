@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Spadar_Login>
+            <active>false</active>
+            <codePool>community</codePool>
+            <self_name></self_name>
+            <priority>1001</priority>
+            <depends>
+            </depends>
+        </Spadar_Login>
+    </modules>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <Widgento_Login>
+        <paths>
+            <path>app/code/community/Widgento/Login/</path>
+            <path>app/etc/modules/Widgento_Login.xml</path>
+            <path>app/etc/modules/Spadar_Login.xml</path>
+            <path>app/locale/en_US/Widgento_Login.csv</path>
+            <path>app/locale/de_DE/Widgento_Login.csv</path>
+            <path>app/design/adminhtml/default/default/layout/widgentologin.xml</path>
+        </paths>
+    </Widgento_Login>
+</manifest>

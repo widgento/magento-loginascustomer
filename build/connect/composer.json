@@ -1,0 +1,15 @@
+{
+    "require": {
+        "magento-hackathon/magento-composer-installer":"*", 
+        "widgento/login": "~1"
+    }, 
+    "repositories":[
+        {"type": "vcs", "url": "https://github.com/magento-hackathon/magento-composer-installer"}, 
+        {"type": "git", "url": "https://github.com/widgento/magento-loginascustomer.git"},
+        {"type": "git", "url": "https://github.com/widgento/magento-core.git"}
+    ],
+    "extra": {
+        "magento-root-dir": "../../var/src/",
+        "magento-deploystrategy": "copy"
+    }
+}

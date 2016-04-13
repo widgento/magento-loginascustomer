@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Widgento_Login>
+            <version>1.1.3</version>
+        </Widgento_Login>
+    </modules>
+
+    <global>
+        <models>
+            <widgentologin>
+                <class>Widgento_Login_Model</class>
+                <resourceModel>widgentologin_mysql4</resourceModel>
+            </widgentologin>
+            <widgentologin_mysql4>
+                <class>Widgento_Login_Model_Mysql4</class>
+                <entities>
+                    <login>
+                        <table>widgento_login</table>
+                    </login>
+                    <login_deprecated>
+                        <table>spadar_login</table>
+                    </login_deprecated>
+                </entities>
+            </widgentologin_mysql4>
+        </models>
+        <blocks>
+            <widgentologin>
+                <class>Widgento_Login_Block</class>
+            </widgentologin>
+        </blocks>
+
+        <helpers>
+            <widgentologin><class>Widgento_Login_Helper</class></widgentologin>
+        </helpers>
+
+		<resources>
+			<widgento_login_setup>
+				<setup>
+ 				   <module>Widgento_Login</module>
+				</setup>
+				<connection>
+				    <use>core_setup</use>
+				</connection>
+			</widgento_login_setup>
+			<widgentologin_write>
+				<connection>
+				    <use>core_write</use>
+				</connection>
+			</widgentologin_write>
+			<widgentologin_read>
+				<connection>
+				    <use>core_read</use>
+				</connection>
+			</widgentologin_read>
+		</resources>
+        <events>
+            <widgento_core_uninstall>
+                <observers>
+                    <widgentologin>
+                        <class>widgentologin/uninstall</class>
+                        <method>uninstall</method>
+                    </widgentologin>
+                </observers>
+            </widgento_core_uninstall>
+        </events>
+    </global>
+
+    <admin>
+        <routers>
+          <widgentologinadmin>
+              <use>admin</use>
+              <args>
+                  <module>Widgento_Login_Adminhtml</module>
+                  <frontName>widgentologinadmin</frontName>
+              </args>
+          </widgentologinadmin>
+       </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+             <updates>
+                  <widgentologin>
+                        <file>widgentologin.xml</file>
+                  </widgentologin>
+             </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <Widgento_Login>
+                    <files>
+                        <default>Widgento_Login.csv</default>
+                    </files>
+                </Widgento_Login>
+            </modules>
+        </translate>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <widgentologin>
+                                            <title>Login as Customer</title>
+                                        </widgentologin>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <customer>
+                            <children>
+                                <widgentologin>
+                                    <title>Login as Customer</title>
+                                    <children>
+                                        <log>
+                                            <title>Login as Customer Logs</title>
+                                        </log>
+                                    </children>
+                                </widgentologin>
+                            </children>
+                        </customer>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <menu>
+            <customer>
+                <children>
+                    <widgentologin translate="title" module="widgentologin">
+                        <title>Login as Customer Logs</title>
+                        <action>widgentologinadmin/log/index</action>
+                        <sort_order>200</sort_order>
+                    </widgentologin>
+                </children>
+            </customer>
+        </menu>
+    </adminhtml>
+
+    <frontend>
+        <routers>
+          <widgentologin>
+              <use>standard</use>
+              <args>
+                  <module>Widgento_Login</module>
+                  <frontName>widgentologin</frontName>
+              </args>
+          </widgentologin>
+       </routers>
+    </frontend>
+
+    <default>
+        <widgentologin>
+            <general>
+                <order_view_display>1</order_view_display>
+                <save_logs>1</save_logs>
+            </general>
+        </widgentologin>
+    </default>
+</config>

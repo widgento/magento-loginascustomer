@@ -1,0 +1,18 @@
+{
+    "name":        "widgento/magento-loginascustomer",
+    "type":        "magento-module",
+    "license":     "Widgento Modules License",
+    "description": "Login as Customer",
+    "authors":[
+        {
+            "name":"Widgento",
+            "email":"info@widgento.com"
+        }
+    ], 
+    "require": {
+        "widgento/magento-core": "~0.2@stable"
+    }, 
+    "repositories":[
+        {"type": "git", "url": "https://github.com/widgento/magento-core.git"}
+    ]
+}
