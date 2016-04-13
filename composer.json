@@ -5,14 +5,23 @@
     "description": "Login as Customer",
     "authors":[
         {
-            "name":"Widgento",
-            "email":"info@widgento.com"
+            "name": "Widgento",
+            "email": "info@widgento.com"
         }
     ], 
     "require": {
+        "magento-hackathon/magento-composer-installer":"*",
         "widgento/magento-core": "~0.2@stable"
     }, 
+    "require-dev": {
+        "phing/phing": "2.*",
+        "widgento/phing-license": "dev-master"
+    },
     "repositories":[
-        {"type": "git", "url": "https://github.com/widgento/magento-core.git"}
-    ]
+        {"type": "git", "url": "https://github.com/widgento/magento-core.git"},
+        {"type": "git", "url": "https://github.com/widgento/phing-license.git"}
+    ],
+    "extra": {
+        "magento-root-dir": "var/src"
+    }
 }

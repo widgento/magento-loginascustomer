@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Widgento_Login" default="archive">
+    <autoloader autoloaderpath="vendor/autoload.php" />
+
+    <import file="vendor/widgento/magento-core/build.xml" />
+    <property name="version" value="0.1.0" override="true" />
+</project>
