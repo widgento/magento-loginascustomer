@@ -1,3 +1,5 @@
 /var/
 /vendor/
 /.idea/
+/test/htdocs/
+/test/var/

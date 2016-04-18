@@ -17,7 +17,7 @@
         "widgento/phing-license": "dev-master"
     },
     "repositories":[
-        {"type": "git", "url": "../magento-core"},
+        {"type": "git", "url": "https://github.com/widgento/magento-core.git"},
         {"type": "git", "url": "https://github.com/widgento/phing-license.git"}
     ]
 }

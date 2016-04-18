@@ -1,0 +1,25 @@
+widgentologindb:
+  image: paulczar/percona-galera
+  volumes:
+    - ./var/lib/mysql:/var/lib/mysql
+  expose:
+    - 3306
+  environment:
+    MYSQL_USER: magento
+    MYSQL_PASS: magento
+    MYSQL_DBNAME: magento
+
+widgentologinapp:
+  image: widgento/magento-debug
+  #command: bash -c "apt-get install git -y && curl -sSL https://raw.githubusercontent.com/AOEpeople/MageTestStand/master/setup.sh | bash"
+  command: /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+  links:
+    - widgentologindb:db
+  environment:
+    WORKSPACE: /var/www/magento/repo_volume
+    MAGENTO_DB_HOST: db
+    MAGENTO_DB_USER: magento
+    MAGENTO_DB_PASS: magento
+    MAGENTO_DB_NAME: magento
+  volumes:
+    - ./var/htdocs:/var/www/magento/repo_volume
