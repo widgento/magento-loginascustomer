@@ -10,7 +10,7 @@
         }
     ], 
     "require": {
-        "widgento/magento-core": "dev-master"
+        "widgento/magento-core": "@dev"
     }, 
     "require-dev": {
         "phing/phing": "2.*",
