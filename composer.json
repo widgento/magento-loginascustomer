@@ -10,7 +10,7 @@
         }
     ], 
     "require": {
-        "widgento/magento-core": "@dev"
+        "widgento/magento-core": "dev-master"
     }, 
     "require-dev": {
         "phing/phing": "2.*",
@@ -19,5 +19,10 @@
     "repositories":[
         {"type": "git", "url": "https://github.com/widgento/magento-core.git"},
         {"type": "git", "url": "https://github.com/widgento/phing-license.git"}
-    ]
+    ],
+    "extra": {
+        "map": [
+            ["src/", ""]
+        ]
+    }
 }

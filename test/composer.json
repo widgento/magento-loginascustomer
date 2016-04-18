@@ -10,6 +10,8 @@
     ],
     "extra": {
         "magento-root-dir": "htdocs/",
-        "magento-deploystrategy": "copy"
-    }
+        "magento-deploystrategy": "copy", 
+        "magento-force": true
+    },
+    "minimum-stability": "dev"
 }
