@@ -1,7 +1,9 @@
 {
     "require": {
         "magento-hackathon/magento-composer-installer": "^3",
-        "magento/core": "^1.9"
+        "magento/core": "^1.9",
+        "widgento/magento-loginascustomer": "dev-master",
+        "widgento/magento-core": "dev-master"
     },
     "repositories":[
         {"type": "composer", "url": "https://packages.firegento.com/"},
