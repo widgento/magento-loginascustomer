@@ -4,22 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f1ff8e60b00b467f43a2ec3ea3555ceb",
-    "content-hash": "c93c4366724b90afbaf357701d240900",
+    "hash": "79cac3a5ceb8af67070b2dc417fda309",
+    "content-hash": "20a04a0cc78f027e0040b285d6bab61e",
     "packages": [
         {
             "name": "widgento/magento-core",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "../magento-core",
-                "reference": "7ffa6a91d691653b0f85b90e596e5c23ac8c9388"
+                "url": "https://github.com/widgento/magento-core.git",
+                "reference": "76d1b857c690e279ee06c32fdc04ed64d7e7fa8b"
             },
             "require-dev": {
                 "phing/phing": "2.*",
                 "widgento/phing-license": "dev-master"
             },
             "type": "magento-module",
+            "extra": {
+                "magento-root-dir": "var/src",
+                "deploy-strategy": "copy",
+                "map": [
+                    [
+                        "src/",
+                        ""
+                    ]
+                ]
+            },
             "license": [
                 "Widgento Modules License"
             ],
@@ -30,7 +40,7 @@
                 }
             ],
             "description": "Widgento Core Module",
-            "time": "2016-04-13 15:02:08"
+            "time": "2016-04-13 14:30:51"
         }
     ],
     "packages-dev": [
