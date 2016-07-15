@@ -17,9 +17,5 @@ widgentologinapp:
     - widgentologindb:db
   environment:
     WORKSPACE: /var/www/magento/repo_volume
-    MAGENTO_DB_HOST: db
-    MAGENTO_DB_USER: magento
-    MAGENTO_DB_PASS: magento
-    MAGENTO_DB_NAME: magento
   volumes:
     - ./var/htdocs:/var/www/magento/repo_volume
