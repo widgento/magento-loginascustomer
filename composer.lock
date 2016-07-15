@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79cac3a5ceb8af67070b2dc417fda309",
-    "content-hash": "20a04a0cc78f027e0040b285d6bab61e",
+    "hash": "d8da180a545265801d4b34c2b37c94d9",
+    "content-hash": "830a219316d1734ff5d007f8561ba311",
     "packages": [
         {
             "name": "widgento/magento-core",
@@ -13,7 +13,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/widgento/magento-core.git",
-                "reference": "76d1b857c690e279ee06c32fdc04ed64d7e7fa8b"
+                "reference": "3b15ec7c72c469f398573f87222c484a834a378f"
             },
             "require-dev": {
                 "phing/phing": "2.*",
@@ -21,12 +21,18 @@
             },
             "type": "magento-module",
             "extra": {
-                "magento-root-dir": "var/src",
-                "deploy-strategy": "copy",
                 "map": [
                     [
-                        "src/",
-                        ""
+                        "src/app/code/community/Widgento/Core/",
+                        "app/code/community/Widgento/Core/"
+                    ],
+                    [
+                        "src/app/etc/modules/Widgento_Core.xml",
+                        "app/etc/modules/Widgento_Core.xml"
+                    ],
+                    [
+                        "src/shell/widgento_uninstall.php",
+                        "shell/widgento_uninstall.php"
                     ]
                 ]
             },
@@ -40,7 +46,7 @@
                 }
             ],
             "description": "Widgento Core Module",
-            "time": "2016-04-13 14:30:51"
+            "time": "2016-04-18 14:20:42"
         }
     ],
     "packages-dev": [

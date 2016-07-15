@@ -1,5 +1,5 @@
 widgentologindb:
-  image: paulczar/percona-galera
+  image: mysql
   volumes:
     - ./var/lib/mysql:/var/lib/mysql
   expose:
@@ -7,7 +7,10 @@ widgentologindb:
   environment:
     MYSQL_USER: magento
     MYSQL_PASS: magento
+    MYSQL_PASSWORD: magento
     MYSQL_DBNAME: magento
+    MYSQL_DATABASE: magento
+    MYSQL_ROOT_PASSWORD: magento
 
 widgentologinapp:
   image: widgento/magento-debug
@@ -17,5 +20,10 @@ widgentologinapp:
     - widgentologindb:db
   environment:
     WORKSPACE: /var/www/magento/repo_volume
+    MAGENTO_DB_HOST: db
+    MAGENTO_DB_USER: magento
+    MAGENTO_DB_PASS: magento
+    MAGENTO_DB_NAME: magento
+    MAGENTO_VERSION: magento-ce-1.9.0.1
   volumes:
     - ./var/htdocs:/var/www/magento/repo_volume
