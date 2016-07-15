@@ -1,18 +1,13 @@
 {
     "require": {
-        "magento-hackathon/magento-composer-installer": "^3",
+        "phing/phing": "2.*",
         "magento/core": "^1.9"
     },
     "repositories": [
         {"type": "composer", "url": "https://packages.firegento.com/"},
-        {"type": "vcs", "url": "https://github.com/widgento/magento-core.git"},
-        {"type": "vcs", "url": "../"}
+        {"type": "vcs", "url": "https://github.com/widgento/magento-core.git"}
     ],
-    "extra": {
-        "magento-root-dir": "htdocs/",
-        "magento-deploystrategy": "copy", 
-        "magento-force": true
-    },
     "minimum-stability" : "dev",
     "prefer-stable": true
 }
+

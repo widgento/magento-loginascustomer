@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Widgento_Login" default="add_dependencies">
+    <autoloader autoloaderpath="vendor/autoload.php" />
+
+    <property name="magento.htdocs" value="./htdocs/" override="true" />
+
+    <target name="add_dependencies" depends="prepare">
+        <copy todir="${buildsrc}">
+            <fileset dir="vendor/widgento/magento-core/src">
+                <include name="**" />
+            </fileset>
+        </copy>
+    </target>
+</project>
