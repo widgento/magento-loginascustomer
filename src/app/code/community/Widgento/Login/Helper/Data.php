@@ -2,63 +2,117 @@
 
 class Widgento_Login_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    const ACL_CUSTOMER_WIDGENTOLOGIN = 'customer/widgentologin';
+
+    /**
+     * @param int $customerId
+     * @return int
+     */
     public function getCustomerStoreId($customerId)
     {
-        if (!$customerId)
-        {
+        if (!$customerId) {
             return false;
         }
     
-        $customer = Mage::getModel('customer/customer')->load($customerId);
+        $customer = $this->getCustomerModel()->load($customerId);
 
-        if ($customer->getStoreId())
-        {
-            $customerStore = Mage::app()->getStore($customer->getStoreId());
+        if ($customer->getStoreId()) {
+            $customerStore = $this->getStoreById($customer->getStoreId());
 
-            if ($customerStore->getId() && $customerStore->getIsActive())
-            {
+            if ($customerStore->getId() && $customerStore->getIsActive()) {
                 return $customer->getStoreId();
             }
         }
     
-        if ($customer->getWebsiteId())
-        {
-            $customerWebsite = Mage::app()->getWebsite($customer->getWebsiteId());
-    
-            foreach ($customerWebsite->getStores() as $websiteStore)
-            {
-                if ($websiteStore->getIsActive())
-                {
+        if ($customer->getWebsiteId()) {
+            $customerWebsite = $this->getWebsiteById($customer->getWebsiteId());
+
+            /* @var $websiteStore Mage_Core_Model_Store */
+            foreach ($customerWebsite->getStores() as $websiteStore) {
+                if ($websiteStore->getIsActive()) {
                     return $websiteStore->getId();
                 }
             }
         }
-    
-        if (0 == Mage::getStoreConfig('customer/account_share/scope'))
-        {
-            return Mage::app()->getDefaultStoreView()->getId();
+
+        if ($this->getCustomerConfigShare()->isGlobalScope()) {
+            return $this->getDefaultStoreView()->getId();
         }
     }
 
-    public function isSaveLogs()
-    {
-        return Mage::getStoreConfig('widgentologin/general/save_logs');
+    /**
+     * @return Mage_Customer_Model_Config_Share
+     */
+    protected function getCustomerConfigShare() {
+        return Mage::getSingleton('customer/config_share');
     }
 
-    public function isOrderViewDisplayButton()
-    {
-        return Mage::getStoreConfig('widgentologin/general/order_view_display');
+    /**
+     * @return Mage_Core_Model_Store
+     */
+    protected function getDefaultStoreView() {
+        return Mage::app()->getDefaultStoreView();
     }
 
+    /**
+     * @param int $storeId
+     * @return Mage_Core_Model_Store
+     */
+    protected function getStoreById($storeId) {
+        return Mage::app()->getStore($storeId);
+    }
+
+    /**
+     * @param int $websiteId
+     * @return Mage_Core_Model_Website
+     */
+    protected function getWebsiteById($websiteId) {
+        return Mage::app()->getWebsite($websiteId);
+    }
+
+    /**
+     * @return Mage_Customer_Model_Customer
+     */
+    protected function getCustomerModel() {
+        return Mage::getModel('customer/customer');
+    }
+
+    /**
+     * @return Mage_Admin_Model_Session
+     */
+    protected function getAdminSession() {
+        return Mage::getSingleton('admin/session');
+    }
+
+    /**
+     * @param string $event
+     * @param array $data
+     * @return Mage_Core_Model_App
+     */
+    protected function dispatchEvent($event, array $data) {
+        return Mage::dispatchEvent($event, $data);
+    }
+
+    /**
+     * @return Varien_Object
+     */
+    protected function getEventTransport() {
+        return new Varien_Object(array(
+            'disable' => false,
+        ));
+    }
+
+    /**
+     * @param int $customerId
+     * @return bool
+     */
     public function isLoginAllowed($customerId) {
-        /* @var $adminSession Mage_Admin_Model_Session */
-        $adminSession = Mage::getSingleton('admin/session');
-        $transport    = new Varien_Object(array('disable' => false));
-        Mage::dispatchEvent('widgentologin_disable', array(
+        $transport = $this->getEventTransport();
+        $this->dispatchEvent('widgentologin_disable', array(
             'transport'   => $transport,
             'customer_id' => $customerId,
         ));
 
-        return ($adminSession->isAllowed('customer/widgentologin') || $transport->getDisable());
+        return ($this->getAdminSession()->isAllowed(self::ACL_CUSTOMER_WIDGENTOLOGIN) || $transport->getDisable());
     }
 }
