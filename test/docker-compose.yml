@@ -9,8 +9,9 @@ widgentologindb:
     MYSQL_PASS: magento
     MYSQL_PASSWORD: magento
     MYSQL_DBNAME: magento
-    MYSQL_DATABASE: magento
+    #MYSQL_DATABASE: magento
     MYSQL_ROOT_PASSWORD: magento
+    MAGENTO_BASE_URL: http://loginascustomer.dev/
 
 widgentologinapp:
   image: widgento/magento-debug
@@ -21,9 +22,11 @@ widgentologinapp:
   environment:
     WORKSPACE: /var/www/magento/repo_volume
     MAGENTO_DB_HOST: db
-    MAGENTO_DB_USER: magento
+    MAGENTO_DB_USER: root
     MAGENTO_DB_PASS: magento
     MAGENTO_DB_NAME: magento
     MAGENTO_VERSION: magento-ce-1.9.0.1
+    MAGENTO_COMPOSER_VERSION: 1.9.2.4
+    VIRTUAL_HOST: magento.local
   volumes:
     - ./var/htdocs:/var/www/magento/repo_volume
