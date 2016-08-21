@@ -1,6 +1,6 @@
 <?php
 
-class Widgento_Login_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Action
+class Widgento_Login_Adminhtml_Widgentologin_IndexController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {
