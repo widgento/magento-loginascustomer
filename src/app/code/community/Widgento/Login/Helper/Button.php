@@ -14,8 +14,7 @@ class Widgento_Login_Helper_Button extends Mage_Core_Helper_Abstract
             'label'   => $this->getHelper()->__('Log in customer'),
             'onclick' => 'window.open(\''.$this->getUrlModel()->getUrl(
                 'adminhtml/widgentologin_index/',
-                array('
-                    id' => $this->getCustomerId())
+                array('id' => $this->getCustomerId())
                 ).'\', \'customer\');',
             );
     }
