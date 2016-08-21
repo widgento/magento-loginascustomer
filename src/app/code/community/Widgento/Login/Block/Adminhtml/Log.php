@@ -13,7 +13,7 @@ class Widgento_Login_Block_Adminhtml_Log extends Mage_Adminhtml_Block_Widget_Gri
         $this->_removeButton('add');
         $this->_addButton('flush', array(
             'label'     => Mage::helper('widgentologin')->__('Clear Logs'),
-            'onclick'   => 'setLocation(\'' . $this->getUrl('widgentologinadmin/log/clear') .'\')',
+            'onclick'   => 'setLocation(\'' . $this->getUrl('adminhtml/widgentologin_log/clear') .'\')',
             'class'     => 'delete',
         ));
 

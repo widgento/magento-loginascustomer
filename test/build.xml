@@ -2,7 +2,7 @@
 <project name="Widgento_Login" default="add_dependencies">
     <autoloader autoloaderpath="vendor/autoload.php" />
 
-    <property name="magento.htdocs" value="./htdocs/" override="true" />
+    <property name="magento.htdocs" value="./var/htdocs/" override="true" />
 
     <target name="add_dependencies" depends="prepare">
         <copy todir="${buildsrc}">
