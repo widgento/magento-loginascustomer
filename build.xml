@@ -3,7 +3,8 @@
     <autoloader autoloaderpath="vendor/autoload.php" />
 
     <import file="vendor/widgento/magento-core/build.xml" />
-    <property name="version" value="0.1.0" override="true" />
+    <property name="magento_extension" value="Widgento_Login" override="true" />
+    <property name="version" value="1.1.4" override="true" />
 
     <target name="add_dependencies" depends="prepare">
         <copy todir="${buildsrc}">
