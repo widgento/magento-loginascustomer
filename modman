@@ -1,0 +1,6 @@
+src/app/code/community/Widgento/Login/ app/code/community/Widgento/Login/
+src/app/etc/modules/Widgento_Login.xml app/etc/modules/Widgento_Login.xml
+src/app/etc/modules/Spadar_Login.xml app/etc/modules/Spadar_Login.xml
+src/app/locale/de_DE/Widgento_Login.csv app/locale/de_DE/Widgento_Login.csv
+src/app/locale/en_US/Widgento_Login.csv app/locale/en_US/Widgento_Login.csv
+src/app/design/adminhtml/default/default/layout/widgentologin.xml app/design/adminhtml/default/default/layout/widgentologin.xml
