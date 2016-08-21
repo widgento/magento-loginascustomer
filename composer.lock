@@ -13,7 +13,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/widgento/magento-core.git",
-                "reference": "3b15ec7c72c469f398573f87222c484a834a378f"
+                "reference": "28453d9f56d61824cdf25d1c5129ce6ba66194e1"
             },
             "require-dev": {
                 "phing/phing": "2.*",
@@ -46,7 +46,7 @@
                 }
             ],
             "description": "Widgento Core Module",
-            "time": "2016-04-18 14:20:42"
+            "time": "2016-07-28 18:31:43"
         }
     ],
     "packages-dev": [
