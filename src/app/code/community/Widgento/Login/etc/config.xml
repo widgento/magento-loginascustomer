@@ -152,7 +152,7 @@
                 </args>
             </widgentologin>
         </routers>
-        <observers>
+        <events>
             <websiterestriction_frontend>
                 <observers>
                     <widgentologin_remove_frontend_restrictions>
@@ -162,7 +162,7 @@
                     </widgentologin_remove_frontend_restrictions>
                 </observers>
             </websiterestriction_frontend>
-        </observers>
+        </events>
     </frontend>
 
     <default>
