@@ -83,7 +83,9 @@ class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
         }
 
         if ($isActive && $login->getCustomerId()) {
-            Mage::dispatchEvent('widgentologin_before_login');
+            Mage::dispatchEvent('widgentologin_before_login', array(
+                'customer_id' => $login->getCustomerId(),
+            ));
 
             foreach ($this->getClearSingletonsList() as $singleton) {
                 /* @var $singleton Mage_Core_Session_Abstract */
@@ -107,6 +109,10 @@ class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
             }
 
             $this->getCustomerSession()->loginById($login->getCustomerId());
+
+            Mage::dispatchEvent('widgentologin_after_login', array(
+                'customer_id' => $login->getCustomerId(),
+            ));
 
             return $this->_redirect(static::REDIRECT_PATH);
         }
